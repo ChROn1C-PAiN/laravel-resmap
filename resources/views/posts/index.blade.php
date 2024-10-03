@@ -49,13 +49,6 @@
                         <p class="text-gray-700 mt-2">{{ Str::limit($post->information, 150) }}</p>
                         <p class="text-gray-500 text-sm mt-2">{{ $post->created_at->format('F j, Y') }}</p>
                         <a href="/posts/{{$post->id}}" class="text-blue-500 mt-4 inline-block">Read more</a>
-                        <a href="{{ route('posts.edit', $post->id) }}" class="text-blue-500 mt-4 inline-block">Edit Request</a>
-                        <!-- Delete Button -->
-                        <form action="{{ route('posts.destroy', $post->id) }}" method="POST" class="inline-block" onsubmit="return confirm('Are you sure you want to delete this post?');">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="text-red-600 hover:underline">Delete Request</button>
-                        </form>
                     </div>
                 @endforeach
             </div>

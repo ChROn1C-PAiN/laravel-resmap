@@ -13,6 +13,17 @@
             <div class="mt-4 text-gray-700">
                 {!! nl2br(e($post->information)) !!}
             </div>
+            <br>
+            <!-- Edit Button -->
+            <a href="{{ route('posts.edit', $post->id) }}" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300">Edit Request</a>
+            <!-- Delete Button -->
+            <form action="{{ route('posts.destroy', $post->id) }}" method="POST" class="inline-block" onsubmit="return confirm('Are you sure you want to delete this post?');">
+                @csrf
+                @method('DELETE')
+                <button class="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700 focus:outline-none focus:ring focus:ring-blue-300">
+                    Delete Request
+                </button>
+            </form>
         </div>
     </div>
 </x-app-layout>
