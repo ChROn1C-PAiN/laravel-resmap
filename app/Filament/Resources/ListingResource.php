@@ -32,6 +32,13 @@ class ListingResource extends Resource
                 Forms\Components\TextInput::make('apartment_owner')
                     ->required()
                     ->maxLength(255),
+                Forms\Components\FileUpload::make('image')
+                    ->label('Apartment Image')    
+                    ->image()
+                    ->required()
+                    ->disk('public')
+                    ->directory('apartments')
+                    ->preserveFilenames(),
                 Forms\Components\TextInput::make('location')
                     ->required()
                     ->maxLength(255),
@@ -58,6 +65,7 @@ class ListingResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('apartment_owner')
                     ->searchable(),
+                Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\TextColumn::make('location')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email')

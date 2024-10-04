@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('apartment_name');
             $table->string('tags');
             $table->string('apartment_owner');
+            $table->string('image')->nullable(); // Field for the image path
             $table->string('location');
             $table->string('email');
             $table->string('website');
